@@ -15,3 +15,7 @@ open_and_ID("Extend.application", "ExtendSim")
 
 #com browser location
 #C:\Users\coop_user\AppData\Local\Programs\Python\Python36-32\Lib\site-packages\win32com\client>python combrowse.py
+#under Registered Type Libraries
+#under Extend Type Library
+#check out Extend Application Dispatch
+#check out all Extend Functions objects

@@ -1,6 +1,7 @@
 import win32com.client
 import win32gui as wg
 import win32con
+import time
 
 def open_and_ID(prog_ID, win_ID):
     program_handle = win32com.client.Dispatch(prog_ID)
@@ -10,12 +11,33 @@ def open_and_ID(prog_ID, win_ID):
     #print(program_handle)
     return program_handle
 
+def wait_time(x):
+    time.sleep(x)
 
-open_and_ID("Extend.application", "ExtendSim")
 
+es_handle = open_and_ID("Extend.application", "ExtendSim")
+print(es_handle)
+#wait_time(1)
+#es_handle.GetObjectHandle("Extend.application", "ExtendSim")
+
+es_handle.GetObjectHandle("prototype1_v2.mox")#, 32) #, "lfalls_nat_9day")
+
+#es_handle.Run("prototype1_v2.mox")
+
+
+es_handle.Execute("""ActiveWorksheet("prototype1_v2.mox")""")
+
+
+#test = es_handle.Request("test_model_1.mox", "E167B362-7044-11d2-99DE-00c0230406DF")
+#print(test)
+#es_handle(Poke(es_handle, "Processed_USGS.csv"))
 #com browser location
 #C:\Users\coop_user\AppData\Local\Programs\Python\Python36-32\Lib\site-packages\win32com\client>python combrowse.py
 #under Registered Type Libraries
 #under Extend Type Library
 #check out Extend Application Dispatch
 #check out all Extend Functions objects
+
+#Extend Sim 8 GUID is: {E167B362-7044-11d2-99DE-00c0230406DF}
+
+#model file prototype1_v2.mox can be found at H:\ICPRB2\USERS2\COOP\PRRISM\PRRISM_nextgen\prototype1

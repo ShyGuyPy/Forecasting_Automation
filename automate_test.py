@@ -8,29 +8,56 @@ def open_and_ID(prog_ID, win_ID):
     app_ID = wg.FindWindow(None, win_ID)
     wg.ShowWindow(app_ID, win32con.SW_MAXIMIZE)
     wg.SetActiveWindow(app_ID)
-    #print(program_handle)
     return program_handle
 
 def wait_time(x):
     time.sleep(x)
 
-
+#calls function(above) that opens Extend SIm and maximizes window
 es_handle = open_and_ID("Extend.application", "ExtendSim")
-print(es_handle)
-#wait_time(1)
-#es_handle.GetObjectHandle("Extend.application", "ExtendSim")
+#es_handle.Execute("""ActivateApplication()""")
 
-#es_handle.GetObjectHandle("prototype1_v2.mox")#, 32) #, "lfalls_nat_9day")
+wait_time(1)
+#es_handle.Execute("""FileOpen("prototype1_v2.mox",""Idunno"")""")
+es_handle.Execute("""FileOpen("C:\\Users\icprbadmin\Documents\Python_Scripts\Forecasting_Automation\prototype1_v2.mox", "Idunno")""")
+#es_handle.Execute("""FileOpen("C:/Users/icprbadmin/Documents/Python_Scripts/Forecasting_Automation/prototype1_v2.mox", "Idunno")""")
 
-
-es_handle.Execute("""ActivateApplication()""")
 #brings specified worksheet to forefront
 es_handle.Execute("""ActivateWorksheet("prototype1_v2.mox")""")
-#set the run parameters SetEndTime, SetStartTime, SetNumSim, SetNumStep
-es_handle.Execute(""" SetRunParameters(10000, 0 , 1, 1) """)
-#runs the simulation, set to false to avaoid setup window pop up
-es_handle.Execute(""" RunSimulation(false)""")
 
+#set the run parameters SetEndTime, SetStartTime, SetNumSim, SetNumStep
+###es_handle.Execute(""" SetRunParameters(10000, 0 , 1, 1) """)
+
+#runs the simulation, set to false to avaoid setup window pop up
+###es_handle.Execute(""" RunSimulation(false)""")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#wait_time(1)
+#test = es_handle.GetObjectHandle("Extend.application", "ExtendSim")
+#print(test)
+
+#es_handle.GetObjectHandle("prototype1_v2.mox")#, 32) #, "lfalls_nat_9day")
+#es_handle.Execute("""FileOpen("Users\icprbadmin\Documents\Python_Scripts\Forecasting_Automation\prototype1_v2.mox", "Idunno")""")
+
+###need to open the prototype1_v2.mox model here
 
 #test = es_handle.Request("test_model_1.mox", "E167B362-7044-11d2-99DE-00c0230406DF")
 #print(test)

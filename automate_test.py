@@ -15,16 +15,25 @@ def wait_time(x):
 
 #calls function(above) that opens Extend SIm and maximizes window
 es_handle = open_and_ID("Extend.application", "ExtendSim")
-#es_handle.Execute("""ActivateApplication()""")
+#brings Exend Sim to the front
+es_handle.Execute("""ActivateApplication()""")
 
-wait_time(1)
-#es_handle.Execute("""FileOpen("prototype1_v2.mox",""Idunno"")""")
-es_handle.Execute("""FileOpen("C:\\Users\icprbadmin\Documents\Python_Scripts\Forecasting_Automation\prototype1_v2.mox", "Idunno")""")
-#es_handle.Execute("""FileOpen("C:/Users/icprbadmin/Documents/Python_Scripts/Forecasting_Automation/prototype1_v2.mox", "Idunno")""")
 
+#wait_time(5)
+
+#test = es_handle.Execute("""FileExists("prototype1_v2.mox")""")
+
+test = es_handle.Execute("""FileOpen("","")""")
+print(type(test))
+#test = es_handle.Execute("""FileOpen("test.TXT","r")""")
+#test = es_handle.Execute("""FileOpen("prototype1_v2.mox","Idunno")""")
+#test = es_handle.Execute("""FileOpen("C:\\Users\icprbadmin\Documents\Python_Scripts\Forecasting_Automation\prototype1_v2.mox", "Idunno")""")
+#test = es_handle.Execute("""FileOpen("C:/Users/icprbadmin/Documents/Python_Scripts/Forecasting_Automation/prototype1_v2.mox", "Idunno")""")
+#test = es_handle.Execute("""FileOpen("/Users/icprbadmin/Documents/Python_Scripts/Forecasting_Automation/prototype1_v2.mox", "Idunno")""")
+#print(test)
 #brings specified worksheet to forefront
-es_handle.Execute("""ActivateWorksheet("prototype1_v2.mox")""")
-
+test2 = es_handle.Execute("""ActivateWorksheet("prototype1_v2.mox")""")
+print(test2)
 #set the run parameters SetEndTime, SetStartTime, SetNumSim, SetNumStep
 ###es_handle.Execute(""" SetRunParameters(10000, 0 , 1, 1) """)
 

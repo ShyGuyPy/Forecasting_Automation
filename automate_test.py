@@ -16,7 +16,8 @@ def wait_time(x):
  ###tomorrow...
  # run C:\Users\icprbadmin\AppData\Local\Continuum\anaconda3\Lib\site-packages\win32com\client>python combrowse.py in
  #terminal to access combrowse.py interface and find ExtednSim10 explicit idispatch #
-
+ #  it's IID:{E167B361-7044-11D2-99DE-00C0230406DF} for our extendsim10
+ #also seems to have built in cursor and wheel control (?)
 
 #calls function(above) that opens Extend SIm and maximizes window
 es_handle = open_and_ID("Extend.application", "ExtendSim10")
@@ -28,7 +29,7 @@ es_handle.Execute("""ActivateApplication()""")
 
 #test = es_handle.Execute("""FileExists("prototype1_v2.mox")""")
 
-test = es_handle.Execute("""FileOpen("","")""")
+test = es_handle.Execute("""FileOpen("C:\\Users\icprbadmin\Documents\ExtendSim10\Examples\Continuous\Standard Block Models\test1.mox","")""")
 print(type(test))
 #test = es_handle.Execute("""FileOpen("test.TXT","r")""")
 #test = es_handle.Execute("""FileOpen("prototype1_v2.mox","Idunno")""")

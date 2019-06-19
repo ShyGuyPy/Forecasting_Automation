@@ -29,16 +29,11 @@ es_handle.Execute("""ActivateApplication()""")
 
 #test = es_handle.Execute("""FileExists("prototype1_v2.mox")""")
 
-test = es_handle.Execute("""FileOpen("C:\\Users\icprbadmin\Documents\ExtendSim10\Examples\Continuous\Standard Block Models\test1.mox","")""")
-print(type(test))
-#test = es_handle.Execute("""FileOpen("test.TXT","r")""")
-#test = es_handle.Execute("""FileOpen("prototype1_v2.mox","Idunno")""")
-#test = es_handle.Execute("""FileOpen("C:\\Users\icprbadmin\Documents\Python_Scripts\Forecasting_Automation\prototype1_v2.mox", "Idunno")""")
-#test = es_handle.Execute("""FileOpen("C:/Users/icprbadmin/Documents/Python_Scripts/Forecasting_Automation/prototype1_v2.mox", "Idunno")""")
-#test = es_handle.Execute("""FileOpen("/Users/icprbadmin/Documents/Python_Scripts/Forecasting_Automation/prototype1_v2.mox", "Idunno")""")
-#print(test)
+#test = es_handle.Execute("""FileOpen("C:\\Users\icprbadmin\Documents\ExtendSim10\Examples\Continuous\Standard Block Models\test1.mox","")""")
+
+
 #brings specified worksheet to forefront
-test2 = es_handle.Execute("""ActivateWorksheet("prototype1_v2.mox")""")
+test2 = es_handle.Execute("""ActivateWorksheet("test_model.mox")""")
 print(test2)
 #set the run parameters SetEndTime, SetStartTime, SetNumSim, SetNumStep
 ###es_handle.Execute(""" SetRunParameters(10000, 0 , 1, 1) """)

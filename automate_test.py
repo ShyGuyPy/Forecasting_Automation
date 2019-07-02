@@ -8,6 +8,7 @@ def open_and_ID(prog_ID, win_ID):
     app_ID = wg.FindWindow(None, win_ID)
     wg.ShowWindow(app_ID, win32con.SW_MAXIMIZE)
     wg.SetActiveWindow(app_ID)
+    #print(program_handle)
     return program_handle
 
 def wait_time(x):
@@ -18,10 +19,14 @@ def wait_time(x):
  #terminal to access combrowse.py interface and find ExtednSim10 explicit idispatch #
  #  it's IID:{E167B361-7044-11D2-99DE-00C0230406DF} for our extendsim10
  #also seems to have built in cursor and wheel control (?)
+#app id is {"6D809377-6AF0-444B-8957-A3773F02200E"}
 
 #calls function(above) that opens Extend SIm and maximizes window
-es_handle = open_and_ID("Extend.application", "ExtendSim10")
-#brings Exend Sim to the front
+es_handle = open_and_ID("Extend.application", "ExtendSim")#"6D809377-6AF0-444B-8957-A3773F02200E")
+
+
+#, "ExtendSim10")
+#brings Extend Sim to the front
 es_handle.Execute("""ActivateApplication()""")
 
 
@@ -33,8 +38,8 @@ es_handle.Execute("""ActivateApplication()""")
 
 
 #brings specified worksheet to forefront
-test2 = es_handle.Execute("""ActivateWorksheet("test_model.mox")""")
-print(test2)
+#test2 = es_handle.Execute("""ActivateWorksheet("test_model.mox")""")
+#print(test2)
 #set the run parameters SetEndTime, SetStartTime, SetNumSim, SetNumStep
 ###es_handle.Execute(""" SetRunParameters(10000, 0 , 1, 1) """)
 

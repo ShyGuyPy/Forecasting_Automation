@@ -9,6 +9,7 @@ def open_and_ID(prog_ID, win_ID):
     wg.ShowWindow(app_ID, win32con.SW_MAXIMIZE)
     wg.SetActiveWindow(app_ID)
     #print(program_handle)
+    print(app_ID)
     return program_handle
 
 def wait_time(x):
@@ -46,8 +47,15 @@ es_handle.Execute("""ActivateApplication()""")
 #runs the simulation, set to false to avaoid setup window pop up
 ###es_handle.Execute(""" RunSimulation(false)""")
 
+#quick test to make sure app_id was being assigned correctly...it is.  problem likely lies somewhere adjacent to this
+#run tet again tomorrow for refresher
+#also look at https://stackoverflow.com/questions/6312627/windows-7-how-to-bring-a-window-to-the-front-no-matter-what-other-window-has-fo
+#aslo review win32gui package
 
+wait_time(5)
 
+fgwin = wg.GetForegroundWindow()
+print(fgwin)
 
 
 

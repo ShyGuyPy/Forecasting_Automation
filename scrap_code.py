@@ -68,3 +68,14 @@
 #Extend Sim 8 GUID is: {E167B362-7044-11d2-99DE-00c0230406DF}
 
 #model file prototype1_v2.mox can be found at H:\ICPRB2\USERS2\COOP\PRRISM\PRRISM_nextgen\prototype1
+
+
+
+#set the run parameters SetEndTime, SetStartTime, SetNumSim, SetNumStep
+#es_handle.Execute(""" SetRunParameters(1000, 0 , 1, 1) """)
+
+#es_handle.Execute("""RunSetup(true)""")
+#test = es_handle.Execute("""NotebookIsOpen()""")
+#print(test)
+
+#es_handle.Execute("""ExecuteMenuCommand(6000)""")

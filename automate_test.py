@@ -13,12 +13,34 @@ def open_and_ID(prog_ID, win_ID):
     print(app_ID)
     return program_handle
 
+def run_by_id(prog_ID, win_ID):
+    program_handle = win32com.client.Dispatch(prog_ID)
+    app_ID = wg.FindWindow(None, win_ID)
+    program_handle.Execute("""ExecuteMenuCommand(6000)""")
+
+def set_and_run(prog_ID, win_ID, SetEndTime, SetStartTime, SetNumSim, SetNumStep):
+    program_handle = win32com.client.Dispatch(prog_ID)
+    app_ID = wg.FindWindow(None, win_ID)
+    # sets the setting parameters into a string that can be fed into the MODL execute
+    execute_input = """SetRunParameters({}, {}, {}, {})""".format(SetEndTime, SetStartTime, SetNumSim, SetNumStep)
+    program_handle.Execute(execute_input)
+
 def wait_time(x):
     time.sleep(x)
 
 
+
+
 es_handle = open_and_ID("Extend.application", "ExtendSim")
 
-#set the run parameters SetEndTime, SetStartTime, SetNumSim, SetNumStep
-es_handle.Execute(""" SetRunParameters(10000, 0 , 1, 1) """)
+wait_time(2)
+#run open model
+#run_by_id("Extend.application", "ExtendSim")
+
+#sets run parameters and then runt he model
+set_and_run("Extend.application", "ExtendSim", 1000, 0 , 1, 1)
+
+
+
+
 

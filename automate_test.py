@@ -30,17 +30,14 @@ def wait_time(x):
 
 
 
-
+#open model
 es_handle = open_and_ID("Extend.application", "ExtendSim")
 
 wait_time(2)
-#run open model
-#run_by_id("Extend.application", "ExtendSim")
+
 
 #sets run parameters and then runt he model
 set_and_run("Extend.application", "ExtendSim", 1000, 0 , 1, 1)
 
-
-
-
-
+#run open model
+run_by_id("Extend.application", "ExtendSim")

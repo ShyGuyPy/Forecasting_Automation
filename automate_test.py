@@ -3,6 +3,7 @@ import win32gui as wg
 import win32con
 import time
 
+
 def open_and_ID(prog_ID, win_ID):
     program_handle = win32com.client.Dispatch(prog_ID)
     app_ID = wg.FindWindow(None, win_ID)

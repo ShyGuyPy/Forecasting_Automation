@@ -29,6 +29,9 @@ def set_and_run(prog_ID, win_ID, SetEndTime, SetStartTime, SetNumSim, SetNumStep
 def wait_time(x):
     time.sleep(x)
 
+def test_click():
+    print("click works")
+
 
 
 #open model

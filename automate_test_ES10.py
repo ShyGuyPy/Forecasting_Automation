@@ -32,6 +32,9 @@ cut = """ExecuteMenuCommand(18)"""
 copy= """ExecuteMenuCommand(19)"""
 paste = """ExecuteMenuCommand(20)"""
 clear = """ExecuteMenuCommand(21)"""
+
+#will make whichever version of extend sim you run this command in your default extend sim(will be the one run by this script)
+update_launch_control = """ExecuteMenuCommand(1410)"""
 #----------------------------------------------------------------------------
 
 #use win32 to open Extend Sim and set window

@@ -1,6 +1,8 @@
 
 #test model is 'Markov Chain Weather' found in ExtendSim10/Exapmles/Continuous/Standard Block Models
 
+# more information about setting up extend sim at:  https://docs.google.com/document/d/1u16zvcNphPmkxYZTrKp78__DTsLl4JpmrN62dfDhsXs/edit
+
 import win32com.client
 import win32gui as wg
 import win32con
@@ -77,7 +79,8 @@ wait_time(2)
 
 
 #sets run parameters and then run the model
-set_and_run("Extend.application", "ExtendSim", 1000, 0 , 1, 1)
+#function inputs are :prog_ID, win_ID, SetEndTime, SetStartTime, SetNumSim, SetNumStep
+set_and_run("Extend.application", "ExtendSim", 1000, 0 , 1, 1) #30763
 
 #run open model
 run_by_id("Extend.application", "ExtendSim")

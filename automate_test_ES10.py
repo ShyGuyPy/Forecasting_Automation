@@ -8,6 +8,16 @@ import win32gui as wg
 import win32con
 import time
 
+
+
+
+import pyperclip
+import clipboard
+import pyautogui
+PRRISM_url = "C:\\Users\icprbadmin\Desktop\PRRISM_v2p00_ops\PRRISM_v2.00_ops.mox"
+cdm_url = "C:\\Users\icprbadmin\Desktop\PRRISM_v2p00_ops\library\CDM.lix"
+newlibrary_url = "C:\\Users\icprbadmin\Desktop\PRRISM_v2p00_ops\library\\newlibrary.lix"
+
 #--------------extend sim menu command codes required format----------------
 #these, and more, can be found on  page 417 of ExendSimTechnicalReferenece.pdf
 run_simulation = """ExecuteMenuCommand(6000)"""
@@ -50,13 +60,14 @@ def open_and_ID(prog_ID, win_ID):
     print(app_ID)
     return program_handle
 
-#run currently open model(defalt model to open can be set in Extend Sim)
+#run currently open model(default model to open can be set in Extend Sim)
 def run_by_id(prog_ID, win_ID):
     program_handle = win32com.client.Dispatch(prog_ID)
     app_ID = wg.FindWindow(None, win_ID)
     program_handle.Execute(run_simulation)#"""ExecuteMenuCommand(6000)""")
 
-def set_and_run(prog_ID, win_ID, SetEndTime, SetStartTime, SetNumSim, SetNumStep):
+#set simulation parameters
+def set_parameters(prog_ID, win_ID, SetEndTime, SetStartTime, SetNumSim, SetNumStep):
     program_handle = win32com.client.Dispatch(prog_ID)
     app_ID = wg.FindWindow(None, win_ID)
     # sets the setting parameters into a string that can be fed into the MODL execute
@@ -70,17 +81,61 @@ def wait_time(x):
 def test_click():
     print("click works")
 
+#opens a file through the drop down menu
+def open_file(prog_ID, win_ID):
+    program_handle = win32com.client.Dispatch(prog_ID)
+    program_handle.Execute(open_model)
+    wait_time(3)
+    pyperclip.copy(PRRISM_url)
+    pyperclip.paste()
+
+#open libraries, in sequence, required to open model
+def open_libraries():
+
+    clipboard.copy(cdm_url)
+    #clipboard.paste()
+    pyautogui.hotkey('ctrl','v')
+    pyautogui.press('enter')
+    # pyperclip.copy(cdm_url)
+    # pyperclip.paste()
+    # pyperclip.paste()
+    # wait_time(10)
+    # pyperclip.copy(newlibrary_url)
+    # pyperclip.paste()
+
+    wait_time(10)
+    clipboard.copy(newlibrary_url)
+    pyautogui.hotkey('ctrl','v')
+    pyautogui.press('enter')
 
 
-#open model
+#open the most recently run model
+def run_recent_1(prog_ID, win_ID):
+    program_handle = win32com.client.Dispatch(prog_ID)
+    app_ID = wg.FindWindow(None, win_ID)
+    program_handle.Execute(recent_file_1 )#"""ExecuteMenuCommand(6000)""")
+
+
+#open extend sim
 es_handle = open_and_ID("Extend.application", "ExtendSim")
 
 wait_time(2)
 
+#opens a file through the drop down menu
+#open_file("Extend.application", "ExtendSim")
+
+#open the most recently run model
+run_recent_1("Extend.application", "ExtendSim")
+
+wait_time(30)
+
+open_libraries()
+
+wait_time(200)
 
 #sets run parameters and then run the model
 #function inputs are :prog_ID, win_ID, SetEndTime, SetStartTime, SetNumSim, SetNumStep
-set_and_run("Extend.application", "ExtendSim", 1000, 0 , 1, 1) #30763
+set_parameters("Extend.application", "ExtendSim", 1000, 0 , 1, 1) #30763
 
 #run open model
 run_by_id("Extend.application", "ExtendSim")

@@ -127,9 +127,9 @@ wait_time(2)
 #open the most recently run model
 run_recent_1("Extend.application", "ExtendSim")
 
-wait_time(30)
+#wait_time(30)
 
-open_libraries()
+#open_libraries()
 
 wait_time(200)
 
